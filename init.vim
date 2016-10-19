@@ -1,0 +1,1 @@
+/home/proxima/.config/nvim/init.vim
