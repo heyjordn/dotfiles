@@ -1,1 +1,0 @@
-/home/proxima/.Xresources.d

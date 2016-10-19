@@ -1,1 +1,32 @@
-/home/proxima/.zshrc
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd extendedglob nomatch
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/proxima/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+alias redwm='cd ~/.dwm; updpkgsums; makepkg -efi --noconfirm; killall dwm'
+alias ls='ls --color=auto'
+alias tmux="tmux -2"
+#source ~/.tmuxinator/tmuxinator.zsh
+export EDITOR='vim'
+# Customize to your needs...
+autoload -Uz propmtinit
+promptinit
+prompt pure

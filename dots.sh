@@ -3,95 +3,96 @@
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # compton
-#ln -s ${BASEDIR}/compton.conf $HOME/.config/compton.conf
+#cp -r  ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 
 # dunst
-#ln -s ${BASEDIR}/dunstrc $HOME/.config/dunstrc
+#cp -r  ${BASEDIR}/dunstrc $HOME/.config/dunstrc
 
 # feh
-ln -s $HOME/.fehbg ${BASEDIR}/fehbg
+cp -r $HOME/.fehbg ${BASEDIR}/fehbg 
 
 # goobook
-#ln -s ${BASEDIR}/goobookrc $HOME/.goobookrc
+#cp -r  ${BASEDIR}/goobookrc $HOME/.goobookrc
 
 # urlview
-#ln -s ${BASEDIR}/urlview $HOME/.urlview
+#cp -r  ${BASEDIR}/urlview $HOME/.urlview
 
 # xinitrc
-ln -s $HOME/.xinitrc ${BASEDIR}/xinitrc
+cp -r  $HOME/.xinitrc ${BASEDIR}/xinitrc
 
 # Xresources
-ln -s $HOME/.Xresources ${BASEDIR}/Xresources
+cp -r  $HOME/.Xresources ${BASEDIR}/Xresources
 
 # bin
-#ln -s ${BASEDIR}/bin $HOME/bin
+#cp -r  ${BASEDIR}/bin $HOME/bin
 
 # dropbox-cli
-#ln -s ${BASEDIR}/dropbox-cli $HOME/.dropbox-cli
+#cp -r  ${BASEDIR}/dropbox-cli $HOME/.dropbox-cli
 
 # fontconfig
-#ln -s ${BASEDIR}/fontconfig $HOME/.config/fontconfig
+#cp -r  ${BASEDIR}/fontconfig $HOME/.config/fontconfig
 
 # fonts
-#ln -s ${BASEDIR}/fonts $HOME/.fonts
+#cp -r  ${BASEDIR}/fonts $HOME/.fonts
 
 # dwm
-ln -s $HOME/.dwm ${BASEDIR}/dwm 
-ln -s $HOME/.dwmstatus ${BASEDIR}/dwmstatus 
+cp -r  $HOME/.dwm ${BASEDIR}/dwm 
+cp -r  $HOME/.dwmstatus ${BASEDIR}/dwmstatus 
 
 # st
-ln -s $HOME/.st ${BASEDIR}/st
+cp -r  $HOME/.st ${BASEDIR}/st
 # mpd
-#ln -s ${BASEDIR}/mpd $HOME/.mpd
+#cp -r  ${BASEDIR}/mpd $HOME/.mpd
 
 # mpdscribble
-#ln -s ${BASEDIR}/mpdscribble $HOME/.mpdscribble
+#cp -r  ${BASEDIR}/mpdscribble $HOME/.mpdscribble
 
 # mplayer
-#ln -s ${BASEDIR}/mplayer $HOME/.mplayer
+#cp -r  ${BASEDIR}/mplayer $HOME/.mplayer
 
 # msmtp
-#ln -s ${BASEDIR}/msmtprc $HOME/.msmtprc
+#cp -r  ${BASEDIR}/msmtprc $HOME/.msmtprc
 
 
 # mutt
-#ln -s ${BASEDIR}/mutt $HOME/.mutt
+#cp -r  ${BASEDIR}/mutt $HOME/.mutt
 
-# ncmpcpp
-#ln -s ${BASEDIR}/ncmpcpp $HOME/.ncmpcpp
+# ncmpcp -rp
+#cp -r  ${BASEDIR}/ncmpcp -rp $HOME/.ncmpcp -rp
 
 # offlineimap
-#ln -s ${BASEDIR}/offlineimap.py $HOME/.offlineimap.py
-#ln -s ${BASEDIR}/offlineimaprc $HOME/.offlineimaprc
+#cp -r  ${BASEDIR}/offlineimap.py $HOME/.offlineimap.py
+#cp -r  ${BASEDIR}/offlineimaprc $HOME/.offlineimaprc
 
 # pass
-#ln -s ${BASEDIR}/pass $HOME/.password-store
+#cp -r  ${BASEDIR}/pass $HOME/.passwordtore
 
 # qutebrowser
-#ln -s ${BASEDIR}/qutebrowser $HOME/.config/qutebrowser
+#cp -r  ${BASEDIR}/qutebrowser $HOME/.config/qutebrowser
 
 # ranger
-ln -s $HOME/.config/ranger ${BASEDIR}/ranger 
+cp -r  $HOME/.config/ranger ${BASEDIR}/ranger 
 
 # browser homepage
-#ln -s ${BASEDIR}/startpage $HOME/.startpage
+#cp -r  ${BASEDIR}/startpage $HOME/.startpage
 
 # todo
-#ln -s ${BASEDIR}/todo $HOME/.todo
+#cp -r  ${BASEDIR}/todo $HOME/.todo
 
 # nvim
-ln -s $HOME/.config/nvim/init.vim ${BASEDIR}/init.vim 
-ln -s $HOME/.config/nvim ${BASEDIR}/nvim 
+cp -r  $HOME/.config/nvim/init.vim ${BASEDIR}/init.vim 
+cp -r  $HOME/.config/nvim ${BASEDIR}/nvim 
 
 # weechat
-#ln -s ${BASEDIR}/weechat $HOME/.weechat
+#cp -r  ${BASEDIR}/weechat $HOME/.weechat
 
 #Xresources.d
-ln -s $HOME/.Xresources.d ${BASEDIR}/Xresources.d 
+cp -r  $HOME/.Xresources.d ${BASEDIR}/Xresources.d 
 
+mkdir zsh
 # zsh
-ln -s $HOME/.prezto ${BASEDIR}/zsh/prezto 
-ln -s $HOME/.preztorc ${BASEDIR}/zsh/preztorc 
-ln -s $HOME/.zprofile ${BASEDIR}/zsh/zprofile 
-ln -s $HOME/.zshrc ${BASEDIR}/zsh/zshrc 
+cp -r  $HOME/.prezto ${BASEDIR}/zsh/prezto 
+cp -r  $HOME/.preztorc ${BASEDIR}/zsh/preztorc 
+cp -r  $HOME/.zprofile ${BASEDIR}/zsh/zprofile 
+cp -r  $HOME/.zshrc ${BASEDIR}/zsh/zshrc 
 

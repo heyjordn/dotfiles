@@ -1,1 +1,2 @@
-/home/proxima/.fehbg
+#!/bin/sh
+feh  --bg-fill '/home/proxima/.wallpapers/original.png' 
