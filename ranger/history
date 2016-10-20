@@ -23,6 +23,6 @@ mkdir dotfiles
 paste
 
 rename .dwmstatus
-wq
 Q
 delete
+wq

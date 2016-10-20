@@ -56,12 +56,12 @@ DWM_CLOCK=$( date '+%e %b %Y %a | %k:%M' );
 
 # Overall output command
 DWM_STATUS=" $DWM_ESSID | $DWM_VOLUME% $DWM_VOLUME_ICON | $DWM_LAYOUT_ICON $DWM_LAYOUT | $DWM_BATTERY% $DWM_BATTERY_ICON | $DWM_CLOCK";
-xsetroot -name "$DWM_STATUS";
-#dwmstatus
+#xsetroot -name "$DWM_STATUS";
 sleep 1;
 
 done &
 
+dwmstatus&
 feh --bg-fill /home/proxima/.wallpapers/original.png &
 #xrandr --output eDP1 --scale .6x.6
 xrdb -merge .Xresources
