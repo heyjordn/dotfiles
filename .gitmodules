@@ -1,0 +1,9 @@
+[submodule "dwm"]
+	path = dwm
+	url = https://github.com/Pr0x1m4/dwm.git
+[submodule "dwmstatus"]
+	path = dwmstatus
+	url = https://github.com/Pr0x1m4/dwmstatus.git
+[submodule "st"]
+	path = st
+	url = https://github.com/Pr0x1m4/st.git
