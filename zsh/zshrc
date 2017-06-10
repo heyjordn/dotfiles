@@ -1,0 +1,42 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd extendedglob nomatch
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/proxima/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+#export WORKON_HOME=~/.virtualenvs
+#source /usr/bin/virtualenvwrapper.sh
+
+alias ls='ls --color=auto'
+alias tmux="tmux -2"
+alias msfconsole="msfconsole --quiet -x \"db_connect postgres@msf\""
+alias scrot="scrot -d 5 -c"
+#source ~/.tmuxinator/tmuxinator.zsh
+export EDITOR='nvim'
+# Customize to your needs...
+autoload -Uz propmtinit
+promptinit
+prompt pure
+
+#Adding RVM to TERM slows it down, uncomment to use
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
