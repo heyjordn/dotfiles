@@ -1,0 +1,384 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[global/wm]
+margin-top = 0
+margin-bottom = 3
+
+
+[bar/top]
+#monitor = ${env:MONITOR:HDMI-1}
+dock = false
+width = 100%
+height = 80
+offset-x = 0
+offset-y = 0
+
+;background = ${xrdb:color0}
+background = #282828
+;background = #cccccccc
+foreground = #ffffffff
+
+;lineheight = 1
+;linecolor = #555
+overline-size = 2
+overline-color = #f00
+underline-size = 5
+underline-color = #00f
+
+;border-bottom = 2
+;border-bottom-color = #333
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ionicons:pixelsize=32;0
+font-1 = hurmit nerd font:pixelsize=22;0
+font-2 = unifont:size=6:heavy:fontformat=truetype;-2
+
+modules-left = bspwm 
+modules-center = date
+modules-right = valume battery wlan
+
+tray-position = right
+tray-maxsize = 40
+tray-padding = 2
+
+wm-restack = bspwm
+
+;tray-transparent = true
+;tray-background = #cc000000
+
+[bar/bottom]
+#monitor = ${env:MONITOR:HDMI-1}
+override-redirect = false
+width = 100%
+height = 80
+offset-x = 0
+offset-y = 0
+
+;background = ${xrdb:color9}
+background = #282828
+foreground = #dfdfdf
+
+;lineheight = 1
+;linecolor = #555
+overline-size = 5
+overline-color = #f00
+underline-size = 5
+underline-color = #00f
+
+border-bottom-size = 2
+border-bottom-color = #333
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ionicons:pixelsize=32;0
+font-1 = hurmit nerd font:pixelsize=22;0
+font-2 = unifont:size=6:heavy:fontformat=truetype;-2
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right = backlight volume powermenu
+; Put the bar at the bottom of the screen
+bottom = true
+
+tray-transparent = true
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 30
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+mount-2 = /invalid/mountpoint
+
+label-mounted = %mountpoint%: %percentage_free%
+
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #55
+
+
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-default = ...
+ws-icon-0 =  code;
+ws-icon-1 =  term;
+ws-icon-2 =  game;
+ws-icon-3 = media;
+
+label-focused = %icon%
+label-focused-background = #55333333
+label-focused-underline= #333333
+label-focused-foreground= #ffffff
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-padding = 2
+label-occupied-foreground = #3f3f3f
+
+label-urgent = %icon%
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = #888888
+label-empty-padding = 2
+
+
+[module/i3]
+type = internal/i3
+format = <label-state>
+index-sort = true
+
+label-focused = %index%
+label-focused-background = #ee333333
+label-focused-underline= #cc333333
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+label-visible = %index%
+label-visible-foreground = #55
+label-visible-padding = 2
+
+
+[module/mpd]
+type = internal/mpd
+
+host = 0.0.0.0
+port = 6600
+
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb =
+icon-stop = 
+icon-play =%{F#689d6a}%{F#cc}
+icon-pause = 
+icon-next = 
+icon-seekf =
+icon-random =
+icon-repeat =
+
+format-online = <label-song> <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random> <bar-progress> 
+bar-progress-width = 45
+bar-progress-indicator = ■
+bar-progress-fill =%{F#689d6a}■ 
+bar-progress-empty =■
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+
+[module/backlight]
+type = internal/xbacklight
+
+format = <bar>
+label = BL
+
+bar-width = 10
+bar-indicator-foreground = #ff
+bar-indicator =
+bar-indicator-font = 2
+bar-fill =■
+bar-fill-font = 2
+bar-fill-foreground = #fff
+bar-empty =■
+bar-empty-font = 2
+bar-empty-foreground = #55
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = %{F#458588}%{F#cc} %percentage%
+label-underline = #689d6a
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = %{F#458588}%{F#cc} %percentage_used%
+label-underline = #689d6a
+
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #fff
+format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = %essid%
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = #55
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #fff 
+
+
+[module/eth]
+type = internal/network
+interface = docker0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = %{F#55}%{F#ff} %local_ip%
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = #55
+
+
+[module/date]
+type = internal/date
+date =  %%{F#fff}%%{F#ff} %A %B %d, %Y
+date-alt = %%{F#536267}%%{F#ff} %H:%M
+interval = 5
+format-underline = #fff
+
+
+[module/volume]
+type = internal/volume
+
+format-volume = <bar-volume>
+
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+label-muted =  sound muted
+label-muted-foreground = #55
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #84bec0
+bar-volume-foreground-1 = #78b8bb
+bar-volume-foreground-2 = #62acaf
+bar-volume-foreground-3 = #56a6a9
+bar-volume-foreground-4 = #509b9f
+bar-volume-foreground-5 = #fff
+bar-volume-foreground-6 = #fff
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill =■
+bar-volume-fill-font = 2
+bar-volume-empty =■
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = #55
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #fff
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+format-full = %{F#55}%{F#ff}  <label-full>
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+
+ramp-capacity-foreground = #d79921
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #fff
+animation-charging-framerate = 750
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #689d6a
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = #e60053
+
+ramp-0 =
+ramp-1 =
+ramp-2 =
+ramp-foreground = #a86c53
+
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-open-foreground = #eeeeee
+label-close =
+label-close-foreground = #e60053
+label-separator = |
+label-separator-foreground = #55
+
+;cancel icon
+menu-0-0 = 
+menu-0-0-exec = menu-open-1
+
+;poweroff icon
+menu-0-1 = 
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+; vim:ft=dosini

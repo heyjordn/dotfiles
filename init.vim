@@ -6,7 +6,6 @@
 "
 "    Author: Pr0x1m4
 
-
 "Vim-Plug/Plugins{{{
 call plug#begin('~/.config/nvim/plugged')
 "Plugin : vim-easy-align{{{
@@ -52,13 +51,27 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' "just guess
 
   let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'gruvbox'
+  let g:airline_theme = 'hybrid'
 
 "}}}
-"Plugin : gruvbox{{{
+"Plugin : vim-hybrid{{{
 "Description: wicked vim theme               "
 
-Plug 'morhetz/gruvbox'
+Plug 'w0ng/vim-hybrid'
+"}}}
+"Plugin : indentLine{{{
+"Description: Show indented lines               "
+
+Plug 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
+let g:indentLine_char = '⸽'
+let g:indentLine_setColors = 239
+
+"}}}
+"Plugin : vim-hybrid{{{
+"Description: swanky new theme               "
+
+Plug 'w0ng/vim-hybrid'
 
 "}}}
 "Plugin : deocomplete + goodies{{{
@@ -66,6 +79,7 @@ Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
   let g:deoplete#enable_at_startup = 1
   augroup deogroup
     autocmd!
@@ -151,16 +165,16 @@ let g:startify_custom_header = [
       \ '           The only way to make sense of it is to jump in.',
       \ ]
 "}}}
-"Plugin : vim-prolog{{{                                                     "
-
-Plug 'adimit/prolog.vim'
+"Plugin : gocode{{{                                                     "
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 "}}}
 call plug#end()
 "}}}
 " Nvim Config {{{
-
-  colorscheme gruvbox "ooo colours
+  
+  colorscheme hybrid
   set background=dark "I got sensitive eyes
+  let g:hybrid_custom_term_colors = 1
   set number
   set laststatus=2
   set tabstop=2

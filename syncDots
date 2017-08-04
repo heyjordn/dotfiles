@@ -2,6 +2,21 @@
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+echo "[-] Cleaning Existing Dots"
+rm -f fehbg
+rm -f init.vim
+rm -f xinitrc
+rm -f Xresources
+rm -rf dwm/*
+rm -rf dwmstatus/*
+rm -rf st/*
+rm -rf ranger/*
+rm -rf zsh/*
+rm -rf polybar/*
+rm -rf bspwm/*
+rm -rf neofetch/*
+sleep 3
+
 # compton
 #cp -rf  ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 
@@ -10,7 +25,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # feh
 cp -f $HOME/.fehbg ${BASEDIR}/fehbg 
-
+echo "[+] Syncing fehbg.."
 # goobook
 #cp -rf  ${BASEDIR}/goobookrc $HOME/.goobookrc
 
@@ -18,9 +33,11 @@ cp -f $HOME/.fehbg ${BASEDIR}/fehbg
 #cp -rf  ${BASEDIR}/urlview $HOME/.urlview
 
 # xinitrc
+echo "[+] Syncing .xinitrc.."
 cp -f  $HOME/.xinitrc ${BASEDIR}/xinitrc
 
 # Xresources
+echo "[+] Syncing .Xresources.."
 cp -f  $HOME/.Xresources ${BASEDIR}/Xresources
 
 # bin
@@ -36,11 +53,14 @@ cp -f  $HOME/.Xresources ${BASEDIR}/Xresources
 #cp -rf  ${BASEDIR}/fonts $HOME/.fonts
 
 # dwm
+echo "[+] Syncing dwm.."
 cp -rf  $HOME/.dwm/* dwm 
 cp -rf  $HOME/.dwmstatus/* dwmstatus 
 
 # st
+echo "[+] Syncing st.."
 cp -rf  $HOME/.st/* st
+
 # mpd
 #cp -rf  ${BASEDIR}/mpd $HOME/.mpd
 
@@ -71,7 +91,8 @@ cp -rf  $HOME/.st/* st
 #cp -rf  ${BASEDIR}/qutebrowser $HOME/.config/qutebrowser
 
 # ranger
-cp -rf  $HOME/.config/ranger/* ranger 
+echo "[+] Syncing ranger.." 
+cp -rf  $HOME/.config/ranger/* ranger
 
 # browser homepage
 #cp -rf  ${BASEDIR}/startpage $HOME/.startpage
@@ -80,6 +101,7 @@ cp -rf  $HOME/.config/ranger/* ranger
 #cp -rf  ${BASEDIR}/todo $HOME/.todo
 
 # nvim
+echo "[+] Syncing neovim.."
 cp -rf  $HOME/.config/nvim/init.vim init.vim 
 
 # weechat
@@ -89,6 +111,24 @@ cp -rf  $HOME/.config/nvim/init.vim init.vim
 #cp -rf  $HOME/.Xresources.d ${BASEDIR}/Xresources.d 
 
 # zsh
+echo "[+] Syncing zsh and zprezto.."
 cp -rf  $HOME/.zprezto zsh/zprezto 
 cp -rf  $HOME/.zshrc zsh/zshrc 
 
+# sxhkd
+echo "[+] Syncing sxhkd.."
+cp -rf  $HOME/.config/sxhkd/* sxhkd
+
+# polybar 
+echo "[+] Syncing polybar.."
+cp -rf  $HOME/.config/polybar/* polybar
+
+#bspwm
+echo "[+] Syncing bspwm.."
+cp -rf  $HOME/.config/bspwm/* bspwm
+
+# neofetch
+echo "[+] Syncing neofetch.."
+cp -rf $HOME/.config/neofetch/* neofetch 
+
+sleep 2

@@ -35,8 +35,8 @@ autoload -Uz propmtinit
 promptinit
 prompt pure
 
-#Adding RVM to TERM slows it down, uncomment to use
+#Adding RVM to TERM slows down terminal prompt time, uncomment to use
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"
