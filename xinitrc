@@ -1,5 +1,5 @@
 #Set background
-feh --bg-fill /home/proxima/.wallpapers/desert.jpg &
+feh --bg-fill /home/proxima/.wallpapers/beach.jpg &
 
 #Merge XResources
 xrdb -merge .Xresources

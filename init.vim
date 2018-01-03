@@ -42,22 +42,21 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "File explorer
 Plug 'ctrlpvim/ctrlp.vim'
 
 "}}}
-"Plugin : vim-airline{{{
+"Plugin : lightline{{{
 "Description: awesome status bar
 "
 "Benefits: Really great for showing info "
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes' "just guess
-
-  let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'hybrid'
-
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
 "}}}
-"Plugin : vim-hybrid{{{
+"Plugin : onedark theme{{{
 "Description: wicked vim theme               "
 
-Plug 'w0ng/vim-hybrid'
+Plug 'joshdick/onedark.vim'
+let g:onedark_termcolors=16
 "}}}
 "Plugin : indentLine{{{
 "Description: Show indented lines               "
@@ -168,13 +167,16 @@ let g:startify_custom_header = [
 "Plugin : gocode{{{                                                     "
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 "}}}
+"Plugin : prettier{{{
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+"}}}
 call plug#end()
 "}}}
 " Nvim Config {{{
-  
-  colorscheme hybrid
-  set background=dark "I got sensitive eyes
-  let g:hybrid_custom_term_colors = 1
+  syntax on
+  colorscheme onedark 
   set number
   set laststatus=2
   set tabstop=2
@@ -187,7 +189,6 @@ call plug#end()
   set wrap
   syntax sync minlines=200 
   set noswapfile "get outta here swap, no one likes you >.>
-  
   set foldmethod=marker
 "}}}
 
@@ -210,8 +211,6 @@ call NERDTreeHighlightFile('hbs', '208', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('java', '139', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('py', 'yellow', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('png', '209', 'none', '#ff00ff', '#151515')
-let g:filetype_pl="prolog"
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 
 

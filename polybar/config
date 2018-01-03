@@ -14,14 +14,12 @@ margin-bottom = 3
 
 [bar/top]
 #monitor = ${env:MONITOR:HDMI-1}
-dock = false
-width = 100%
+width = 60%
 height = 80
-offset-x = 0
-offset-y = 0
+offset-x = 800
+offset-y = 20
 
-;background = ${xrdb:color0}
-background = #282828
+background = #282c34
 ;background = #cccccccc
 foreground = #ffffffff
 
@@ -29,25 +27,24 @@ foreground = #ffffffff
 ;linecolor = #555
 overline-size = 2
 overline-color = #f00
-underline-size = 5
+underline-size = 8
 underline-color = #00f
 
 ;border-bottom = 2
 ;border-bottom-color = #333
 
 spacing = 1
-padding-left = 0
-padding-right = 2
+padding = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = ionicons:pixelsize=32;0
-font-1 = hurmit nerd font:pixelsize=22;0
+font-0 = ionicons:pixelsize=25;0
+font-1 = hurmit nerd font:pixelsize=20;0
 font-2 = unifont:size=6:heavy:fontformat=truetype;-2
 
-modules-left = bspwm 
-modules-center = date
-modules-right = valume battery wlan
+modules-left = wlan
+modules-center = bspwm
+modules-right = cpu temperature backlight volume battery
 
 tray-position = right
 tray-maxsize = 40
@@ -58,48 +55,50 @@ wm-restack = bspwm
 ;tray-transparent = true
 ;tray-background = #cc000000
 
+
 [bar/bottom]
 #monitor = ${env:MONITOR:HDMI-1}
-override-redirect = false
-width = 100%
+width = 340
 height = 80
-offset-x = 0
-offset-y = 0
+offset-x = 1800
+offset-y = 20
 
-;background = ${xrdb:color9}
-background = #282828
-foreground = #dfdfdf
+background = #282c34
+;background = #cccccccc
+foreground = #ffffffff
 
 ;lineheight = 1
 ;linecolor = #555
-overline-size = 5
+overline-size = 2
 overline-color = #f00
-underline-size = 5
+underline-size = 8
 underline-color = #00f
 
-border-bottom-size = 2
-border-bottom-color = #333
+;border-bottom = 2
+;border-bottom-color = #333
 
 spacing = 1
-padding-left = 0
-padding-right = 2
+padding = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = ionicons:pixelsize=32;0
-font-1 = hurmit nerd font:pixelsize=22;0
+font-0 = ionicons:pixelsize=25;0
+font-1 = hurmit nerd font:pixelsize=20;0
 font-2 = unifont:size=6:heavy:fontformat=truetype;-2
 
-modules-left = bspwm
-modules-center = xwindow
-modules-right = backlight volume powermenu
+modules-left = 
+modules-center = bspwm
+modules-right =
+
+tray-position = right
+tray-maxsize = 40
+tray-padding = 2
+
+wm-restack = bspwm
 ; Put the bar at the bottom of the screen
 bottom = true
-
-tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = bspwm
+;tray-transparent = true
+;tray-background = #cc000000
 
 
 [module/xwindow]
@@ -127,10 +126,10 @@ label-unmounted-foreground = #55
 type = internal/bspwm
 
 ws-icon-default = ...
-ws-icon-0 =  code;
-ws-icon-1 =  term;
-ws-icon-2 =  game;
-ws-icon-3 = media;
+ws-icon-0 =  code;
+ws-icon-1 =  term;
+ws-icon-2 =  game;
+ws-icon-3 = media;
 
 label-focused = %icon%
 label-focused-background = #55333333
@@ -205,34 +204,25 @@ toggle-off-foreground = #66
 
 [module/backlight]
 type = internal/xbacklight
-
-format = <bar>
-label = BL
-
-bar-width = 10
-bar-indicator-foreground = #ff
-bar-indicator =
-bar-indicator-font = 2
-bar-fill =■
-bar-fill-font = 2
-bar-fill-foreground = #fff
-bar-empty =■
-bar-empty-font = 2
-bar-empty-foreground = #55
-
+label = %percentage%
+format = <ramp><label> 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = %{F#458588}%{F#cc} %percentage%
-label-underline = #689d6a
+label = %{F#ffffffff}%{F#ffffffff} %percentage%
 
 
 [module/memory]
 type = internal/memory
 interval = 2
-label = %{F#458588}%{F#cc} %percentage_used%
-label-underline = #689d6a
+label = %{F#ffffffff}%{F#ffffffff} %percentage_used%
+label-underline = #ffffffff
 
 
 [module/wlan]
@@ -241,8 +231,6 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #fff
-format-disconnected-underline = ${self.format-connected-underline}
 
 label-connected = %essid%
 label-disconnected = %ifname% disconnected
@@ -280,32 +268,24 @@ format-underline = #fff
 [module/volume]
 type = internal/volume
 
-format-volume = <bar-volume>
-
-label-volume = VOL
+format-volume = <ramp-volume> <label-volume> 
+label-volume = %percentage%
 label-volume-foreground = ${root.foreground}
 
-label-muted =  sound muted
-label-muted-foreground = #55
+label-muted = 🔇 muted
+label-muted-foreground = #66
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #84bec0
-bar-volume-foreground-1 = #78b8bb
-bar-volume-foreground-2 = #62acaf
-bar-volume-foreground-3 = #56a6a9
-bar-volume-foreground-4 = #509b9f
-bar-volume-foreground-5 = #fff
-bar-volume-foreground-6 = #fff
-bar-volume-gradient = false
-bar-volume-indicator = 
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #ff
-bar-volume-fill =■
-bar-volume-fill-font = 2
-bar-volume-empty =■
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = #55
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
+; If defined, it will replace <ramp-volume> when
+; headphones are plugged in to `headphone_control_numid`
+; If undefined, <ramp-volume> will be used for both
+; Only applies if <ramp-volume> is used
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 [module/battery]
 type = internal/battery
@@ -316,15 +296,14 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #fff
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-format-full = %{F#55}%{F#ff}  <label-full>
+format-full = %{F#ff}%{F#ff}  <label-full>
 format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 
-ramp-capacity-foreground = #d79921
+ramp-capacity-foreground = #ffffffff
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -339,18 +318,16 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #689d6a
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = #e60053
+label-warn-foreground = #fff
 
 ramp-0 =
 ramp-1 =
 ramp-2 =
-ramp-foreground = #a86c53
+ramp-foreground = #fff
 
 
 [module/powermenu]

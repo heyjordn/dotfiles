@@ -1,0 +1,3 @@
+polybar|warn:  No monitor specified, using "eDP1"
+polybar|warn:  The config parameter `bar/top.dock` is deprecated, use `bar/top.override-redirect` instead.
+polybar|error: Failed to set background (reason: X resource "color0" not found (no fallback set))
